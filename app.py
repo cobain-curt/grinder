@@ -43,7 +43,7 @@ def send_message(chat_id, text):
     except Exception as e:
         print('Failed to send message:', e)
 
-@app.route('/')
+@app.route(render_template('index.html'))
 def index():
     return 'Bot is running!'
 

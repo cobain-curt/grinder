@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Графики из практики</title>
+</head>
+<body>
+    <h1>Отчётные графики</h1>
+    {% for chart in charts %}
+        <div>
+            <h3>{{ chart }}</h3>
+            <img src="{{ url_for('static', filename=chart) }}" style="max-width: 600px; margin-bottom: 20px;">
+        </div>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Сообщение {{ msg.id }}</title>
+</head>
+<body>
+    <h1>Сообщение {{ msg.id }} от {{ msg.user_name or msg.user_id }}</h1>
+    <p><strong>Текст:</strong> {{ msg.text }}</p>
+    <p><strong>Получено:</strong> {{ msg.timestamp }}</p>
+    {% if msg.replied %}
+    <p><strong>Ответ отправлен:</strong> {{ msg.reply_text }}</p>
+    <p><strong>Время ответа:</strong> {{ msg.replied_at }}</p>
+    {% else %}
+    <form method="post">
+        <textarea name="reply" rows="4" cols="50" placeholder="Напишите ответ"></textarea><br>
+        <input type="submit" value="Отправить ответ">
+    </form>
+    {% endif %}
+    <br><a href="{{ url_for('dashboard') }}">Назад</a>
+</body>
+</html>

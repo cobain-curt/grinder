@@ -1,0 +1,25 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Панель администратора</title>
+</head>
+<body>
+    <h1>Входящие сообщения</h1>
+    <table border="1">
+        <tr><th>ID</th><th>Пользователь</th><th>Сообщение</th><th>Время</th><th>Ответ</th><th>Действия</th></tr>
+        {% for msg in messages %}
+        <tr>
+            <td>{{ msg.id }}</td>
+            <td>{{ msg.user_name or msg.user_id }}</td>
+            <td>{{ msg.text }}</td>
+            <td>{{ msg.timestamp }}</td>
+            <td>{{ 'Да' if msg.replied else 'Нет' }}</td>
+            <td><a href="{{ url_for('message_detail', message_id=msg.id) }}">Просмотр</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{{ url_for('stats') }}">Показать графики</a><br>
+    <a href="{{ url_for('logout') }}">Выйти</a>
+</body>
+</html>

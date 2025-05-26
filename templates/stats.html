@@ -1,0 +1,14 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Статистика</title>
+</head>
+<body>
+    <h1>Статистика клиники</h1>
+    <p>Доход за квартал:</p>
+    <img src="{{ url_for('static', filename='quarterly_revenue.png') }}" alt="Quarterly Revenue">
+    <p>Доход за месяц:</p>
+    <img src="{{ url_for('static', filename='monthly_revenue.png') }}" alt="Monthly Revenue">
+    <br><a href="{{ url_for('dashboard') }}">Назад</a>
+</body>
+</html>
